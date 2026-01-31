@@ -10,6 +10,8 @@
 - [x] integrate with message hub
 
 ## Testing
+- [x] Setup
+- [ ] Auto ping pong
 - [ ] Closing logic / scenarios
   - [ ] cancel ctx
   - [ ] conn close during read
@@ -17,8 +19,6 @@
   - [ ] read deadline exceeds
   - [ ] write deadline exceeds
 - [x] protocol violation
-- [ ] Setup
-- [ ] Auto ping pong
 - [x] Text frame / frag frame read
 - [x] Text frame / frag frame read 
 - [o] Invalid TextFrame
