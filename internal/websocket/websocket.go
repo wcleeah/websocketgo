@@ -188,6 +188,10 @@ func (ws *WebSocket) read() {
 	numberOfFrag := 0
 	var rootFrame *inFrame
 	var closeErr error
+	defer func() {
+		ws.l.Error("Frame Reader: error while processing frame", "err", closeErr)
+		ws.close(closeErr)
+	}()
 
 Outer:
 	for {
@@ -343,8 +347,6 @@ Outer:
 		}
 	}
 
-	ws.l.Error("Frame Reader: error while processing frame", "err", closeErr)
-	ws.close(closeErr)
 }
 
 func (ws *WebSocket) readFrame() (*inFrame, error) {
